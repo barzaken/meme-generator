@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Meme Generator</title>
+</head>
+
+<body onload="init()">
+
+    <div class="main-layout">
+        <div class="logo">Meme Generator</div>
+        <nav class="nav-bar">
+            <ul class="clean-list">
+                <li>Gallery</li>
+                <li>My Memes</li>
+            </ul>
+        </nav>
+        <div class="main-content">
+            <div class="gallery-container"></div>
+            <div class="editor-container">
+                <div class="meme-editor">
+                    <div class="text-controller">
+                        <input type="text" oninput="onSetTxt(this.value)">
+                        <button onclick="onTxtAlign('right')">Left</button>
+                        <button onclick="onTxtAlign('center')">Center</button>
+                        <button onclick="onTxtAlign('left')">Right</button>
+                        <button onclick="onSetTxtSize(2)">A+</button>
+                        <button onclick="onSetTxtSize(-2)">A-</button>
+                        <input type="color" oninput="onSetTxtColor(this.value)">
+                    </div>
+                    <div class="line-controller">
+                        <button onclick="onDeleteLine()">Delete Line</button>
+                        <button onclick="onAddLine()">Add Line</button>
+                        <button onclick="onSwitchLine()">Switch Line</button>
+                    </div>
+                </div>
+                <canvas id="meme-canvas" width="400px" height="400px"></canvas>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/meme.service.js"></script>
+    <script src="js/gallery.controller.js"></script>
+    <script src="js/meme.controller.js"></script>
+</body>
+
+</html>
