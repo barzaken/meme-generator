@@ -1,65 +1,97 @@
 'use strict'
 
-let gImgs = [
-    { id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat'] },
-    { id: 2, url: 'img/2.jpg', keywords: ['funny', 'cat'] },
-    { id: 3, url: 'img/3.jpg', keywords: ['funny', 'cat'] }
-]
+let gImgs = []
 
 let gMeme = {
     selectedImgId: 0,
     selectedLineIdx: 0,
     lines: [{
-        txt: 'Text goes here', 
+        txt: 'Text goes here',
         size: 40,
         align: 'center',
-        color: 'red'
+        color: 'white'
     }]
 }
 
-function setTxt(lineIdx,txt){
+let gIsDrag
+
+function createImages(){
+    for(let i = 0; i < 18; i++){
+        gImgs[i] = { id: +`${i+1}`, url: `img/${i+1}.jpg`, keywords: ['funny', 'cat'] }
+    }
+}
+
+function loadMyMemes(){
+    gImgs  = loadFromStorage(MEMES_KEY)
+}
+
+
+// function isLineClicked(clickedPos) {
+//     gIsDrag = gMeme.lines.indexOf(({ pos, size }) =>
+//     ((clickedPos.x >= pos.x && clickedPos.x <= pos.x + pos.width && (clickedPos.y >= pos.y - size && (clickedPos.y <= pos.y)))))
+//     console.log(gIsDrag)
+// }
+
+// function moveLine(dx, dy) {
+//     gMeme.lines[gIsDrag].pos.x += dx
+//     gMeme.lines[gIsDrag].pos.y += dy
+// }
+
+// function getIsDrag() {
+//     return gIsDrag
+// }
+
+// function setLineDrag(isDrag) {
+//     gIsDrag = isDrag
+// }
+
+function setLinePos(pos, lineIdx) {
+    gMeme.lines[lineIdx].pos = pos
+}
+
+function setTxt(lineIdx, txt) {
     gMeme.lines[lineIdx].txt = txt
 }
-function setTxtAlign(lineIdx,direction){
+function setTxtAlign(lineIdx, direction) {
     gMeme.lines[lineIdx].align = direction
 }
 
-function setTxtSize(lineIdx,action){
+function setTxtSize(lineIdx, action) {
     gMeme.lines[lineIdx].size += action
 }
 
-function setTxtColor(lineIdx,color){
+function setTxtColor(lineIdx, color) {
     gMeme.lines[lineIdx].color = color
 }
 
-function deleteLine(lineIdx){
-    gMeme.lines.splice(lineIdx,1)
+function deleteLine(lineIdx) {
+    gMeme.lines.splice(lineIdx, 1)
 }
 
-function addLine(){
+function addLine() {
     gMeme.lines.push({
-        txt: 'Text goes here', 
+        txt: 'Text goes here',
         size: 40,
         align: 'center',
-        color: 'red'
+        color: 'white'
     }
     )
 }
 
-function setMeme(id){
+function setMeme(id) {
     gMeme.selectedImgId = id
 }
 
-function getMeme(){
+function getMeme() {
     return gMeme
 }
 
 
-function getImgs(){
+function getImgs() {
     return gImgs
 }
 
-function getImgUrlById(id){
-    let {url} = gImgs.find(img => img.id === id)
+function getImgUrlById(id) {
+    let { url } = gImgs.find(img => img.id === id)
     return url
 }

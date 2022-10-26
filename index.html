@@ -12,25 +12,28 @@
 <body onload="init()">
 
     <div class="main-layout">
-        <div class="logo">Meme Generator</div>
         <nav class="nav-bar">
-            <ul class="clean-list">
-                <li>Gallery</li>
-                <li>My Memes</li>
+            <img class="logo" src="img/logo.png">
+            <ul class="nav-btns">
+                <li onclick="showGallery()">Gallery</li>
+                <li onclick="showMyMemes()">My Memes</li>
+                <li>About</li>
             </ul>
         </nav>
         <div class="main-content">
             <div class="gallery-container"></div>
-            <div class="editor-container">
+            <div class="editor-container hide">
                 <div class="meme-editor">
                     <div class="text-controller">
-                        <input type="text" oninput="onSetTxt(this.value)">
-                        <button onclick="onTxtAlign('right')">Left</button>
-                        <button onclick="onTxtAlign('center')">Center</button>
-                        <button onclick="onTxtAlign('left')">Right</button>
-                        <button onclick="onSetTxtSize(2)">A+</button>
-                        <button onclick="onSetTxtSize(-2)">A-</button>
-                        <input type="color" oninput="onSetTxtColor(this.value)">
+                        <input class="text-input" type="text" oninput="onSetTxt(this.value)">
+                        <div class="text-buttons">
+                            <button onclick="onTxtAlign('right')">Left</button>
+                            <button onclick="onTxtAlign('center')">Center</button>
+                            <button onclick="onTxtAlign('left')">Right</button>
+                            <button onclick="onSetTxtSize(2)">A+</button>
+                            <button onclick="onSetTxtSize(-2)">A-</button>
+                            <input class="color-input" type="color" oninput="onSetTxtColor(this.value)">
+                        </div>
                     </div>
                     <div class="line-controller">
                         <button onclick="onDeleteLine()">Delete Line</button>
@@ -38,12 +41,22 @@
                         <button onclick="onSwitchLine()">Switch Line</button>
                     </div>
                 </div>
-                <canvas id="meme-canvas" width="400px" height="400px"></canvas>
+                <div class="options">
+                    <input type="file" name="image" onchange="onImgInput(event)" />
+                    <button onclick="uploadImg()">Share</button>
+                    <button onclick="saveMeme()">Save Meme</button>
+                    <a href="#" class="btn" onclick="downloadImg(this)" download="my-meme.jpg">Download as jpeg</a>
+                    <div class="link"></div>
+                </div>
+                <canvas id="meme-canvas"></canvas>
             </div>
+            <div class="my-memes hide"></div>
         </div>
 
     </div>
 
+    <script src="js/storage.service.js"></script>
+    <script src="js/upload.service.js"></script>
     <script src="js/meme.service.js"></script>
     <script src="js/gallery.controller.js"></script>
     <script src="js/meme.controller.js"></script>
