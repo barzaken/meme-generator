@@ -21,9 +21,9 @@ function createImages(){
     }
 }
 
-function loadMyMemes(){
-    gImgs  = loadFromStorage(MEMES_KEY)
-}
+// function loadMyMemes(){
+//     gImgs  = loadFromStorage(MEMES_KEY)
+// }
 
 
 // function isLineClicked(clickedPos) {
