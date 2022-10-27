@@ -6,21 +6,21 @@ let gCurrLine = 0
 let gCurrLinesLength
 let gStartPos
 
-const MEMES_KEY = 'memesDB'
+
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
-function renderMeme(id) {
+function renderMeme(savedMeme) {
     showEditor()
     gElCanvas = document.getElementById('meme-canvas')
     gCtx = gElCanvas.getContext('2d')
     // addListeners()
 
     //Get Meme Object
-    let meme = getMeme()
+    let meme = savedMeme || getMeme()
 
     //Get & Draw Meme image
     let img = new Image()
-    img.src = getImgUrlById(meme.selectedImgId)
+    img.src =  getImgUrlById(meme.selectedImgId) 
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
 
     //Render lines
@@ -28,19 +28,16 @@ function renderMeme(id) {
     gCurrLinesLength = meme.lines.length
 }
 
-function drawText({ txt, size, align, color }, idx) {
+function drawText({ txt, size, align, color,pos }, idx) {
     if (!txt) return
     gCtx.lineWidth = 2
     gCtx.strokeStyle = 'black'
     gCtx.fillStyle = color
     gCtx.font = `${size}px Impact`
     gCtx.textAlign = align
+    console.log(pos)
 
-    let pos = { x: gElCanvas.width / 2, y: gElCanvas.height / 2, width: gCtx.measureText(txt).width }
-    if (idx === 0) pos.y = size
-    if (idx === 1) pos.y = gElCanvas.height - size
-
-    setLinePos(pos, idx)
+    pos = { x: pos.x , y: pos.y , width: gCtx.measureText(txt).width }
 
     gCtx.fillText(txt, pos.x, pos.y) // Draws (fills) a given text at the given (x, y) position.
     gCtx.strokeText(txt, pos.x, pos.y) // Draws (strokes) a given text at the given (x, y) position.
@@ -129,6 +126,11 @@ function onDeleteLine() {
 function onAddLine() {
     addLine()
     gCurrLine++
+    renderMeme()
+}
+
+function onLineHeight(action){
+    changeLineHeight(gCurrLine,action)
     renderMeme()
 }
 

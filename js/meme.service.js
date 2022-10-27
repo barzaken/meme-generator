@@ -1,30 +1,48 @@
 'use strict'
 
 let gImgs = []
+const IMGS_KEY = 'memesImgs'
+const MEMES_KEY = 'myMemes'
 
 let gMeme = {
     selectedImgId: 0,
     selectedLineIdx: 0,
     lines: [{
-        txt: 'Text goes here',
+        txt: 'Upper goes here',
         size: 40,
         align: 'center',
-        color: 'white'
-    }]
+        color: 'white',
+        pos: {x:150 , y:45},
+    },
+    {
+        txt: 'Bottom goes here',
+        size: 40,
+        align: 'center',
+        color: 'white',
+        pos: {x:150 , y:140},
+    }
+]
 }
 
 let gIsDrag
 
-function createImages(){
-    for(let i = 0; i < 18; i++){
-        gImgs[i] = { id: +`${i+1}`, url: `img/${i+1}.jpg`, keywords: ['funny', 'cat'] }
-    }
+
+function loadImages(){
+    gImgs = _loadImgsFromStorage() || createImages()
+    _saveImgsToStorage()
 }
 
-// function loadMyMemes(){
-//     gImgs  = loadFromStorage(MEMES_KEY)
-// }
+function getMyMemes(){
+    return loadFromStorage(MEMES_KEY)
+}
 
+function createImages(){
+    let imgs = []
+    for(let i = 0; i < 18; i++){
+        imgs.push({ id: makeId(), url: `img/${i+1}.jpg`, keywords: ['funny', 'cat'] })
+    }
+    return imgs
+}
 
 // function isLineClicked(clickedPos) {
 //     gIsDrag = gMeme.lines.indexOf(({ pos, size }) =>
@@ -45,8 +63,8 @@ function createImages(){
 //     gIsDrag = isDrag
 // }
 
-function setLinePos(pos, lineIdx) {
-    gMeme.lines[lineIdx].pos = pos
+function changeLineHeight(lineIdx,action){
+    gMeme.lines[lineIdx].pos.y += action
 }
 
 function setTxt(lineIdx, txt) {
@@ -73,7 +91,8 @@ function addLine() {
         txt: 'Text goes here',
         size: 40,
         align: 'center',
-        color: 'white'
+        color: 'white',
+        pos: {x:150, y:100}
     }
     )
 }
@@ -92,6 +111,16 @@ function getImgs() {
 }
 
 function getImgUrlById(id) {
+    console.log('get',id)
     let { url } = gImgs.find(img => img.id === id)
+    console.log(url)
     return url
+}
+
+function _loadImgsFromStorage(){
+    return loadFromStorage(IMGS_KEY)
+}
+
+function _saveImgsToStorage(){
+    saveToStorage(IMGS_KEY,gImgs)
 }

@@ -1,17 +1,19 @@
 'use strict'
 
+
+
 function init(){
-    createImages()
+    loadImages()
     renderGallery()
 }
 
 
-function renderGallery(myMemes){
+function renderGallery(isTrue){
     let imgs = getImgs()
-    let strHtml = imgs.map(({ id,url }) => {
+    let strHtml = imgs.map(({ id }) => {
         return `
-        <div class="card" onclick="onClickMeme(${id})">
-            <img id="img${id}" src=${url}>
+        <div class="card" onclick="onClickMeme('${id}')">
+            <img id="img${id}" src=${getImgUrlById(id)}>
         </div>
         `
     }).join('')
@@ -19,10 +21,27 @@ function renderGallery(myMemes){
     elGallery.innerHTML = strHtml
 }
 
-function onClickMeme(id){
+function renderMyMemes(){
+    let imgs = getMyMemes()
+    console.log('img',imgs)
+    let strHtml = imgs.map(({selectedImgId : id}) => {
+       
+        return `
+        <div class="card" onclick="onClickMeme('${id}')">
+            <img src=${getImgUrlById(id)}>
+        </div>
+        `
+    }).join('')
+    let elGallery = document.querySelector('.gallery-container')
+    elGallery.innerHTML = strHtml
+}
+
+
+
+function onClickMeme(id,meme){
     setMeme(id)
     hideGallery()
-    renderMeme()
+    renderMeme(meme)
 }
 
 function hideGallery(){
@@ -32,20 +51,15 @@ function hideGallery(){
 
 function showGallery(){
     hideEditor()
-    hideMyMemes()
+    loadImages()
     let elGallery = document.querySelector('.gallery-container')
     elGallery.classList.remove('hide')
-}
-
-function hideMyMemes(){
-    let elMyMemes =  document.querySelector('.my-memes')
-    elMyMemes.classList.add('hide')
+    renderGallery()
 }
 
 function showMyMemes(){
     hideEditor()
-    hideGallery()
-    let elMyMemes =  document.querySelector('.my-memes')
-    elMyMemes.classList.remove('hide')
-    loadMyMemes()
+    let elGallery = document.querySelector('.gallery-container')
+    elGallery.classList.remove('hide')
+    renderMyMemes()
 }
