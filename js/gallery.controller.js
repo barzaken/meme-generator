@@ -52,6 +52,7 @@ function hideGallery(){
 }
 
 function showGallery(){
+    gUploadSrc=''
     hideEditor()
     loadImages()
     let elGallery = document.querySelector('.gallery-container')

@@ -5,7 +5,7 @@ let gCtx
 let gCurrLine = 0
 let gCurrLinesLength
 let gStartPos
-
+let gUploadSrc
 
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
@@ -19,7 +19,7 @@ function renderMeme(savedMeme) {
 
     //Get & Draw Meme image
     let img = new Image()
-    img.src =  getImgUrlById(meme.selectedImgId) 
+    img.src = gUploadSrc || getImgUrlById(meme.selectedImgId) 
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
 
     //Render lines
@@ -46,7 +46,6 @@ function drawText({ txt, size, align, color,pos }, idx) {
 function downloadImg(elLink) {
     console.log('first')
     const imgContent = gElCanvas.toDataURL('image/jpeg')
-    console.log(imgContent)
     elLink.href = imgContent
 }
 
@@ -61,6 +60,7 @@ function loadImageFromInput(ev, onImageReady) {
     reader.onload = function (event) {
         let img = new Image() // Create a new html img element
         img.src = event.target.result // Set the img src to the img file we read
+        gUploadSrc = event.target.result
         // Run the callBack func, To render the img on the canvas
         img.onload = onImageReady.bind(null, img)
         // Can also do it this way:
