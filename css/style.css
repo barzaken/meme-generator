@@ -16,10 +16,6 @@ img {
     width: 100%;
 }
 
-.hide {
-    display: none;
-}
-
 /* green rgb(0,128,55) */
 
 .main-layout {
@@ -204,7 +200,7 @@ img {
     margin: auto;
 }
 
-.text-buttons >* {
+.text-buttons>* {
     height: 100%;
 }
 
@@ -212,7 +208,9 @@ img {
     object-fit: contain;
 }
 
-
+.hide {
+    display: none;
+}
 
 @media (max-width:560px) {
 
@@ -265,8 +263,3 @@ img {
     }
 
 }
-
-.hide {
-    display: none;
-}
-
