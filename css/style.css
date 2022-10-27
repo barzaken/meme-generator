@@ -211,7 +211,7 @@ img {
 @media (max-width:560px) {
 
     .main-layout {
-        max-width: 560;
+        max-width: 560px;
         margin-left: auto;
         margin-right: auto;
     }
