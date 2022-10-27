@@ -17,7 +17,9 @@ img {
 }
 
 /* green rgb(0,128,55) */
-
+.menu-btn{
+    display: none;
+}
 .main-layout {
     margin: auto auto;
     height: 100vh;
@@ -208,9 +210,7 @@ img {
     object-fit: contain;
 }
 
-.hide {
-    display: none;
-}
+
 
 @media (max-width:560px) {
 
@@ -261,5 +261,7 @@ img {
         height: 300px;
         grid-area: edit;
     }
-
+}
+.hide {
+    display: none;
 }
