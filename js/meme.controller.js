@@ -19,7 +19,7 @@ function renderMeme(savedMeme) {
 
     //Get & Draw Meme image
     let img = new Image()
-    img.src = gUploadSrc || getImgUrlById(meme.selectedImgId) 
+    img.src = gUploadSrc || getImgUrlById(meme.selectedImgId)
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
 
     //Render lines
@@ -28,7 +28,7 @@ function renderMeme(savedMeme) {
     gCurrLinesLength = meme.lines.length
 }
 
-function drawText({ txt, size, align, color,pos }, idx) {
+function drawText({ txt, size, align, color, pos }, idx) {
     if (!txt) return
     gCtx.lineWidth = 2
     gCtx.strokeStyle = 'black'
@@ -37,7 +37,7 @@ function drawText({ txt, size, align, color,pos }, idx) {
     gCtx.textAlign = align
     console.log(pos)
 
-    pos = { x: pos.x , y: pos.y , width: gCtx.measureText(txt).width }
+    pos = { x: pos.x, y: pos.y, width: gCtx.measureText(txt).width }
 
     gCtx.fillText(txt, pos.x, pos.y) // Draws (fills) a given text at the given (x, y) position.
     gCtx.strokeText(txt, pos.x, pos.y) // Draws (strokes) a given text at the given (x, y) position.
@@ -107,11 +107,11 @@ function renderImg(img) {
 
 
 
-function saveMeme(){
+function saveMeme() {
     let meme = getMeme()
     let myMemes = loadFromStorage(MEMES_KEY) || []
     myMemes.push(meme)
-    saveToStorage(MEMES_KEY, myMemes) 
+    saveToStorage(MEMES_KEY, myMemes)
 }
 
 function onSwitchLine() {
@@ -129,8 +129,8 @@ function onAddLine() {
     renderMeme()
 }
 
-function onLineHeight(action){
-    changeLineHeight(gCurrLine,action)
+function onLineHeight(action) {
+    changeLineHeight(gCurrLine, action)
     renderMeme()
 }
 

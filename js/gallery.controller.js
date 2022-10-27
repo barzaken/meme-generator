@@ -2,13 +2,13 @@
 
 
 
-function init(){
+function init() {
     loadImages()
     renderGallery()
 }
 
 
-function renderGallery(isTrue){
+function renderGallery(isTrue) {
     let imgs = getImgs()
     let strHtml = imgs.map(({ id }) => {
         return `
@@ -21,11 +21,11 @@ function renderGallery(isTrue){
     elGallery.innerHTML = strHtml
 }
 
-function renderMyMemes(){
+function renderMyMemes() {
     let imgs = getMyMemes()
-    console.log('img',imgs)
-    let strHtml = imgs.map(({selectedImgId : id}) => {
-       
+    console.log('img', imgs)
+    let strHtml = imgs.map(({ selectedImgId: id }) => {
+
         return `
         <div class="card" onclick="onClickMeme('${id}')">
             <img src=${getImgUrlById(id)}>
@@ -40,19 +40,19 @@ function toggleMenu() {
     document.querySelector('.main-layout').classList.toggle('menu-open')
 }
 
-function onClickMeme(id){
+function onClickMeme(id) {
     setMeme(id)
     hideGallery()
     renderMeme()
 }
 
-function hideGallery(){
+function hideGallery() {
     let elGallery = document.querySelector('.gallery-container')
     elGallery.classList.add('hide')
 }
 
-function showGallery(){
-    gUploadSrc=''
+function showGallery() {
+    gUploadSrc = ''
     hideEditor()
     loadImages()
     let elGallery = document.querySelector('.gallery-container')
@@ -60,7 +60,7 @@ function showGallery(){
     renderGallery()
 }
 
-function showMyMemes(){
+function showMyMemes() {
     hideEditor()
     let elGallery = document.querySelector('.gallery-container')
     elGallery.classList.remove('hide')

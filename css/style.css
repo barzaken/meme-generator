@@ -17,9 +17,10 @@ img {
 }
 
 /* green rgb(0,128,55) */
-.menu-btn{
+.menu-btn {
     display: none;
 }
+
 .main-layout {
     margin: auto auto;
     height: 100vh;
@@ -262,6 +263,7 @@ img {
         grid-area: edit;
     }
 }
+
 .hide {
     display: none;
 }
