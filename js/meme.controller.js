@@ -10,7 +10,6 @@ let gStartPos
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
 function renderMeme(savedMeme) {
-    showEditor()
     gElCanvas = document.getElementById('meme-canvas')
     gCtx = gElCanvas.getContext('2d')
     // addListeners()
@@ -25,6 +24,7 @@ function renderMeme(savedMeme) {
 
     //Render lines
     meme.lines.forEach((line, idx) => drawText(line, idx))
+    showEditor(meme)
     gCurrLinesLength = meme.lines.length
 }
 
@@ -187,7 +187,7 @@ function onSetTxtColor(color) {
 //     gElCanvas.addEventListener('mouseup', onUp)
 // }
 
-function showEditor() {
+function showEditor(meme) {
     let elEditor = document.querySelector('.editor-container')
     elEditor.classList.remove('hide')
 }

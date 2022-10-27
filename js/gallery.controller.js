@@ -36,12 +36,14 @@ function renderMyMemes(){
     elGallery.innerHTML = strHtml
 }
 
+function toggleMenu() {
+    document.querySelector('.main-layout').classList.toggle('menu-open')
+}
 
-
-function onClickMeme(id,meme){
+function onClickMeme(id){
     setMeme(id)
     hideGallery()
-    renderMeme(meme)
+    renderMeme()
 }
 
 function hideGallery(){

@@ -4,6 +4,7 @@ let gImgs = []
 const IMGS_KEY = 'memesImgs'
 const MEMES_KEY = 'myMemes'
 
+
 let gMeme = {
     selectedImgId: 0,
     selectedLineIdx: 0,
@@ -42,6 +43,10 @@ function createImages(){
         imgs.push({ id: makeId(), url: `img/${i+1}.jpg`, keywords: ['funny', 'cat'] })
     }
     return imgs
+}
+
+function setFilter(txt){
+    gFilterBy.txt = txt
 }
 
 // function isLineClicked(clickedPos) {
@@ -111,9 +116,7 @@ function getImgs() {
 }
 
 function getImgUrlById(id) {
-    console.log('get',id)
     let { url } = gImgs.find(img => img.id === id)
-    console.log(url)
     return url
 }
 
