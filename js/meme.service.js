@@ -10,14 +10,14 @@ let gMeme = {
     selectedLineIdx: 0,
     lines: [{
         txt: 'Upper goes here',
-        size: 40,
+        size: 25,
         align: 'center',
         color: 'white',
         pos: { x: 150, y: 45 },
     },
     {
         txt: 'Bottom goes here',
-        size: 40,
+        size: 25,
         align: 'center',
         color: 'white',
         pos: { x: 150, y: 140 },

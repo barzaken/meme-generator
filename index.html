@@ -28,25 +28,25 @@
                     <div class="text-controller">
                         <input class="text-input" type="text" oninput="onSetTxt(this.value)">
                         <div class="text-buttons">
-                            <button class="editor-btn" onclick="onTxtAlign('right')">left</button>
-                            <button onclick="onTxtAlign('center')">center</button>
-                            <button onclick="onTxtAlign('left')">right</button>
-                            <button onclick="onSetTxtSize(2)">A+</button>
-                            <button onclick="onSetTxtSize(-2)">A-</button>
+                            <button class="editor-btn" onclick="onTxtAlign('right')"><img class="image-btn" src="/img/icons/icons8-align-left-48.png"></button>
+                            <button onclick="onTxtAlign('center')"><img class="image-btn" src="/img/icons/icons8-align-justify-48.png"></button>
+                            <button onclick="onTxtAlign('left')"><img class="image-btn" src="/img/icons/icons8-align-right-48.png"></button>
+                            <button onclick="onSetTxtSize(2)"><img class="image-btn" src="/img/icons/icons8-increase-font-48.png"></button>
+                            <button onclick="onSetTxtSize(-2)"><img class="image-btn" src="/img/icons/icons8-increase-font-48.png"></button>
                             <input class="color-input" type="color" oninput="onSetTxtColor(this.value)">
                         </div>
                         <div class="line-controller">
-                            <button onclick="onDeleteLine()">Delete Line</button>
-                            <button onclick="onAddLine()">Add Line</button>
-                            <button onclick="onSwitchLine()">Switch Line</button>
-                            <button onclick="onLineHeight(-5)">↓</button>
-                            <button onclick="onLineHeight(5)">↑</button>
+                            <button onclick="onDeleteLine()"><img class="image-btn" src="/img/icons/icons8-trash-can-50.png"></button>
+                            <button onclick="onAddLine()"><img class="image-btn" src="/img/icons/icons8-plus-key-50.png"></button>
+                            <button onclick="onSwitchLine()"><img class="image-btn" src="/img/icons/icons8-switch-50.png"></button>
+                            <button onclick="onLineHeight(-5)"><img class="image-btn" src="/img/icons/icons8-chevron-up-30.png"></button>
+                            <button onclick="onLineHeight(5)"><img class="image-btn" src="/img/icons/icons8-chevron-down-30.png"></button>
                         </div>
                         <div class="options">
-                            <input class="btn" type="file" name="image" onchange="onImgInput(event)" />
-                            <button class="btn" onclick="uploadImg()">Share</button>
-                            <button class="btn" onclick="saveMeme()">Save Meme</button>
-                            <a href="#" class="btn" onclick="downloadImg(this)" download="my-meme.jpg">Download as
+                            <input  type="file" name="image" onchange="onImgInput(event)" />
+                            <button  onclick="uploadImg()">Share</button>
+                            <button  onclick="saveMeme()">Save Meme</button>
+                            <a href="#" onclick="downloadImg(this)" download="my-meme.jpg">Download as
                                 jpeg</a>
                             <div class="link"></div>
                             <div class="user-msg"></div>
