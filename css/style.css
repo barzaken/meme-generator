@@ -268,10 +268,9 @@ img {
 }
 
 @media (max-width:560px) {
-    .nav-bar {
+    .nav-bar  {
         position: fixed;
         width: 100%;
-        height: 20%;
     }
 
     .main-layout {
