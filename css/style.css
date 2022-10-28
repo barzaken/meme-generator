@@ -120,9 +120,22 @@ img {
     /* place-itemss: center; */
 }
 
-.options >*{
-    background-color: red;
+.options *{
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    justify-content: flex-end;
+    color: inherit;
+    font-size: 1.5rem;
 }
+.upload-img{
+    width: 20px;
+    padding: 0;
+}
+
+.image-upload>input {
+    display: none;
+  }
 
 .editor-container {
     background-color: #303030;

@@ -43,11 +43,15 @@
                             <button onclick="onLineHeight(5)"><img class="image-btn" src="/img/icons/icons8-chevron-down-30.png"></button>
                         </div>
                         <div class="options">
-                            <input  type="file" name="image" onchange="onImgInput(event)" />
+                            <div class="image-upload">
+                                <label for="file-input">
+                                  <img class="upload-img" src="/img/icons/icons8-upload-50.png"/>
+                                </label>
+                                <input id="file-input" type="file" name="image" onchange="onImgInput(event)" />
+                              </div>
                             <button  onclick="uploadImg()">Share</button>
-                            <button  onclick="saveMeme()">Save Meme</button>
-                            <a href="#" onclick="downloadImg(this)" download="my-meme.jpg">Download as
-                                jpeg</a>
+                            <button  onclick="saveMeme()">Save</button>
+                            <a href="#" onclick="downloadImg(this)" download="my-meme.jpg">download</a>
                             <div class="link"></div>
                             <div class="user-msg"></div>
                         </div>
