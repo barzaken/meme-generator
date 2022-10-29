@@ -10,14 +10,14 @@ const btn = document.querySelector('.share-btn');
 const resultPara = document.querySelector('.user-msg');
 
 // Share must be triggered by "user activation"
-btn.addEventListener('click', async () => {
-  try {
-    await navigator.share(shareData);
-    resultPara.textContent = 'MDN shared successfully';
-  } catch (err) {
-    resultPara.textContent = `Error: ${err}`;
-  }
-});
+// btn.addEventListener('click', async () => {
+//   try {
+//     await navigator.share(shareData);
+//     resultPara.textContent = 'MDN shared successfully';
+//   } catch (err) {
+//     resultPara.textContent = `Error: ${err}`;
+//   }
+// });
 
 
 
@@ -27,7 +27,21 @@ function uploadImg() {
 
   // A function to be called if request succeeds
   function onSuccess(uploadedImgUrl) {
+
     shareData.url = uploadedImgUrl
+    navigator.share(shareData);
+  }
+  //   async () => {
+  //     console.log('in')
+  //     try {
+  //       console.log('succses')
+  //       resultPara.textContent = 'MDN shared successfully';
+  //     } catch (err) {
+  //       console.log('fail')
+  //       resultPara.textContent = `Error: ${err}`;
+  //     }
+  //   }
+  // }
     // navigator.share(shareData)
     // Encode the instance of certain characters in the url
     // const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
@@ -37,7 +51,7 @@ function uploadImg() {
     //       <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
     //          Share   
     //       </a>`
-  }
+  
   // Send the image to the server
   doUploadImg(imgDataUrl, onSuccess)
 }
