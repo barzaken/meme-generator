@@ -129,8 +129,16 @@ img {
     font-size: 1.5rem;
 }
 .upload-img{
-    width: 20px;
+    width: 50px;
     padding: 0;
+}
+
+.image-upload{
+    border: 1px dotted red;
+    width: 200px;
+    margin: 15px auto;
+    /* display: flex; */
+    /* width: 50%; */
 }
 
 .image-upload>input {
@@ -332,9 +340,8 @@ img {
 
     #meme-canvas {
         margin-top: 10px;
-        width: 300px;
-        height: 300px;
         grid-area: edit;
+        width: 90%;
     }
 }
 
