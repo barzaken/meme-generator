@@ -6,52 +6,22 @@ const shareData = {
   url: ''
 }
 
-const btn = document.querySelector('.share-btn');
-const resultPara = document.querySelector('.user-msg');
-
-// Share must be triggered by "user activation"
-// btn.addEventListener('click', async () => {
-//   try {
-//     await navigator.share(shareData);
-//     resultPara.textContent = 'MDN shared successfully';
-//   } catch (err) {
-//     resultPara.textContent = `Error: ${err}`;
-//   }
-// });
-
 
 
 
 function uploadImg() {
   const imgDataUrl = gElCanvas.toDataURL("image/jpeg")// Gets the canvas content as an image format
-
   // A function to be called if request succeeds
   function onSuccess(uploadedImgUrl) {
-
     shareData.url = uploadedImgUrl
+    const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
+    document.querySelector('.link').innerHTML = `
+          <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
+             Share   
+             </a>`
+    document.querySelector('.user-msg').innerText = `Your photo is available here: ${uploadedImgUrl}`
     navigator.share(shareData);
   }
-  //   async () => {
-  //     console.log('in')
-  //     try {
-  //       console.log('succses')
-  //       resultPara.textContent = 'MDN shared successfully';
-  //     } catch (err) {
-  //       console.log('fail')
-  //       resultPara.textContent = `Error: ${err}`;
-  //     }
-  //   }
-  // }
-    // navigator.share(shareData)
-    // Encode the instance of certain characters in the url
-    // const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
-    // document.querySelector('.user-msg').innerText = `Your photo is available here: ${uploadedImgUrl}`
-    // Create a link that on click will make a post in facebook with the image we uploaded
-    // document.querySelector('.link').innerHTML = `
-    //       <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
-    //          Share   
-    //       </a>`
-  
   // Send the image to the server
   doUploadImg(imgDataUrl, onSuccess)
 }
