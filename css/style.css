@@ -61,9 +61,7 @@ img {
     transition: 2s hover;
 }
 
-.nav-btns>*:hover {
-    color: green;
-}
+
 
 .nav-btns>* {
     border: 2px solid rgb(231, 229, 229);
@@ -94,9 +92,8 @@ img {
     margin-right: auto;
     margin-top: 20px;
     transition: width 0.5s;
-    box-shadow: -1px 1px 28px 9px #F1A661;
-    -webkit-box-shadow: -1px 1px 28px 9px #F1A661;
-    -moz-box-shadow: -1px 1px 28px 9px #F1A661;
+    -webkit-box-shadow: 0px 2px 15px 4px rgba(255,114,111,0.66); 
+    box-shadow: 0px 2px 15px 4px rgba(255,114,111,0.66);
     padding: 2px;
 }
 
@@ -118,7 +115,7 @@ img {
     /* place-itemss: center; */
 }
 
-.options *{
+.options * {
     text-decoration: none;
     background-color: transparent;
     border: none;
@@ -126,12 +123,13 @@ img {
     color: inherit;
     font-size: 1.5rem;
 }
-.upload-img{
+
+.upload-img {
     width: 50px;
     padding: 0;
 }
 
-.image-upload{
+.image-upload {
     border: 1px dotted red;
     width: 200px;
     margin: 15px auto;
@@ -140,7 +138,7 @@ img {
 
 .image-upload>input {
     display: none;
-  }
+}
 
 .editor-container {
     background-color: #FFFFF9;
@@ -198,11 +196,9 @@ img {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.nav-bar *:hover {
-    border: none;
-    color: rgb(95, 227, 154);
+.nav-bar li:hover{
+    color: #ff726f;
 }
-
 
 .my-memes {
     height: 100%;
@@ -249,7 +245,7 @@ img {
     object-fit: contain;
 }
 
-.image-btn{
+.image-btn {
     background-color: transparent;
     height: 30px;
     border: none;
@@ -258,54 +254,64 @@ img {
     /* width: 50px; */
 }
 
-.text-buttons button{
+.text-buttons button {
     background-color: transparent;
     border: 2px solid white;
 }
-.text-buttons input{
+
+.text-buttons input {
     background-color: transparent;
     border: none;
     /* padding-bottom: 50px; */
     height: 30px;
 }
+
 .line-controller button {
     background-color: transparent;
     border: 2px solid white;
 }
 
-.text-controller{
+.text-controller {
     height: 0px;
 }
 
-.share-btn{
+.share-btn {
     background-color: lightblue;
     width: 200px;
 }
 
-.save-btn{
+.save-btn {
     background-color: aquamarine;
     width: 200px;
 }
 
-.download-btn{
+.download-btn {
     display: inline-block;
     width: 200px;
     background-color: #ff726f;
     height: 30px;
 }
 
-@media (max-width:560px) {
-    .logo{
+#meme-canvas {
+    outline: 29px ridge #ff726f;
+    outline-offset: 0px;
+}
+
+@media (max-width:780px) {
+    .logo {
         width: 160px;
     }
-    .nav-bar  {
+
+    .nav-bar {
         position: fixed;
         width: 100%;
     }
-    .text-controller{
+
+    .text-controller {
         margin-top: 50px;
         height: 300px;
     }
+
     .main-layout {
         max-width: 560px;
         margin-left: auto;
