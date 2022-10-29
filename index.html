@@ -51,8 +51,8 @@
                                 <input id="file-input" type="file" name="image" onchange="onImgInput(event)" />
                               </div>
                             <button class="share-btn" onclick="uploadImg()">Share</button>
-                            <button  onclick="saveMeme()">Save</button>
-                            <a href="#" onclick="downloadImg(this)" download="my-meme.jpg">download</a>
+                            <button class="save-btn"  onclick="saveMeme()">Save</button>
+                            <a class="download-btn" href="#" onclick="downloadImg(this)" download="my-meme.jpg">download</a>
                             <div class="link"></div>
                             <div class="user-msg"></div>
                         </div>
@@ -65,10 +65,10 @@
 
     </div>
 
-    <script src="js/storage.service.js"></script>
+    <script src="js/services/storage.service.js"></script>
     <script src="js/utils.js"></script>
-    <script src="js/upload.service.js"></script>
-    <script src="js/meme.service.js"></script>
+    <script src="js/services/upload.service.js"></script>
+    <script src="js/services/meme.service.js"></script>
     <script src="js/gallery.controller.js"></script>
     <script src="js/meme.controller.js"></script>
 </body>

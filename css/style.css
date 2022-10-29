@@ -137,8 +137,7 @@ img {
     border: 1px dotted red;
     width: 200px;
     margin: 15px auto;
-    /* display: flex; */
-    /* width: 50%; */
+
 }
 
 .image-upload>input {
@@ -263,16 +262,38 @@ img {
 
 .text-buttons button{
     background-color: transparent;
-    border: none;
+    border: 2px solid white;
 }
 .text-buttons input{
     background-color: transparent;
     border: none;
+    /* padding-bottom: 50px; */
     height: 30px;
 }
 .line-controller button {
     background-color: transparent;
-    border: none;
+    border: 2px solid white;
+}
+
+.text-controller{
+    height: 0px;
+}
+
+.share-btn{
+    background-color: lightblue;
+    width: 200px;
+}
+
+.save-btn{
+    background-color: aquamarine;
+    width: 200px;
+}
+
+.download-btn{
+    display: inline-block;
+    width: 200px;
+    background-color: #ff726f;
+    height: 30px;
 }
 
 @media (max-width:560px) {
@@ -280,7 +301,10 @@ img {
         position: fixed;
         width: 100%;
     }
-
+    .text-controller{
+        margin-top: 50px;
+        height: 300px;
+    }
     .main-layout {
         max-width: 560px;
         margin-left: auto;

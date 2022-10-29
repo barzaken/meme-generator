@@ -1,14 +1,11 @@
 'use strict'
 
-
-
 function init() {
     loadImages()
     renderGallery()
 }
 
-
-function renderGallery(isTrue) {
+function renderGallery() {
     let imgs = getImgs()
     let strHtml = imgs.map(({ id }) => {
         return `

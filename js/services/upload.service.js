@@ -2,7 +2,6 @@
 
 const shareData = {
   title: 'Meme',
-  // text: 'Share your meme!',
   url: ''
 }
 
@@ -19,7 +18,7 @@ function uploadImg() {
           <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
              Share   
              </a>`
-    document.querySelector('.user-msg').innerText = `Your photo is available here: ${uploadedImgUrl}`
+    document.querySelector('.user-msg').innerHTML = `Your photo is available here: <a href="${uploadedImgUrl}">Link</a>`
     navigator.share(shareData);
   }
   // Send the image to the server
