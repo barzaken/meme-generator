@@ -2,7 +2,7 @@
 
 const shareData = {
   title: 'Meme',
-  text: 'Share your meme!',
+  // text: 'Share your meme!',
   url: ''
 }
 
