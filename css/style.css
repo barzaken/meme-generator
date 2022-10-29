@@ -97,6 +97,11 @@ img {
     padding: 2px;
 }
 
+.font-select{
+    font-size: 30px;
+    border-radius: 22px;
+    text-align: center;
+}
 .card:hover {
     transform: scale(1.1);
 }
