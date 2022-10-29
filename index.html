@@ -14,7 +14,7 @@
     <div class="main-layout">
         <nav class="nav-bar">
             <button class="menu-btn" onclick="toggleMenu()">☰</button>
-            <img class="logo" src="img/logo2.png">
+            <img class="logo" src="img/my-logo.png">
             <ul class="nav-btns">
                 <li onclick="showGallery()">Gallery</li>
                 <li onclick="showMyMemes()">Memes</li>
@@ -36,6 +36,12 @@
                             <input class="color-input" type="color" oninput="onSetTxtColor(this.value)">
                         </div>
                         <div class="line-controller">
+                            <select oninput="onChangeFont(this.value)" name="font" id="font">
+                                <option value="Garamond">Garamond</option>
+                                <option value="Brush Script MT">Brush Script MT</option>
+                                <option value="Trebuchet MS">Trebuchet MS</option>
+                                <option value="Tahoma">Tahoma</option>
+                              </select>
                             <button onclick="onDeleteLine()"><img class="image-btn" src="img/icons/icons8-trash-can-50.png"></button>
                             <button onclick="onAddLine()"><img class="image-btn" src="img/icons/icons8-plus-key-50.png"></button>
                             <button onclick="onSwitchLine()"><img class="image-btn" src="img/icons/icons8-switch-50.png"></button>

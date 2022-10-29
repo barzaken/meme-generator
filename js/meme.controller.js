@@ -28,12 +28,13 @@ function renderMeme(savedMeme) {
     gCurrLinesLength = meme.lines.length
 }
 
-function drawText({ txt, size, align, color, pos }, idx) {
+function drawText({ txt, size, align, color, pos ,font }, idx) {
     if (!txt) return
+    console.log(font)
     gCtx.lineWidth = 2
     gCtx.strokeStyle = 'black'
     gCtx.fillStyle = color
-    gCtx.font = `${size}px Impact`
+    gCtx.font = `${size}px ${font}`
     gCtx.textAlign = align
     console.log(pos)
 
@@ -41,6 +42,12 @@ function drawText({ txt, size, align, color, pos }, idx) {
 
     gCtx.fillText(txt, pos.x, pos.y) // Draws (fills) a given text at the given (x, y) position.
     gCtx.strokeText(txt, pos.x, pos.y) // Draws (strokes) a given text at the given (x, y) position.
+}
+
+function onChangeFont(font){
+    console.log(font)
+    setFont(gCurrLine,font)
+    renderMeme()
 }
 
 function downloadImg(elLink) {

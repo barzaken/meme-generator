@@ -91,14 +91,14 @@ img {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
-    transition: width 0.5s;
+    transition: transform .2s; 
     -webkit-box-shadow: 0px 2px 15px 4px rgba(255,114,111,0.66); 
     box-shadow: 0px 2px 15px 4px rgba(255,114,111,0.66);
     padding: 2px;
 }
 
 .card:hover {
-    width: 170px;
+    transform: scale(1.1);
 }
 
 

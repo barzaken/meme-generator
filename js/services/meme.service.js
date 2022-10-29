@@ -10,16 +10,18 @@ let gMeme = {
     selectedLineIdx: 0,
     lines: [{
         txt: 'Upper goes here',
-        size: 25,
+        size: 35,
         align: 'center',
         color: 'white',
+        font: 'impact',
         pos: { x: 150, y: 45 },
     },
     {
         txt: 'Bottom goes here',
-        size: 25,
+        size: 35,
         align: 'center',
         color: 'white',
+        font: 'impact',
         pos: { x: 150, y: 140 },
     }
     ]
@@ -27,6 +29,9 @@ let gMeme = {
 
 let gIsDrag
 
+function setFont(lineIdx,font){
+    gMeme.lines[lineIdx].font = font
+}
 
 function loadImages() {
     gImgs = _loadImgsFromStorage() || createImages()
