@@ -350,7 +350,7 @@ img {
 
     .nav-btns {
         position: fixed;
-        top: 160px;
+        top: 110px;
         right: 0px;
         transform: translateX(200%);
         width: 70%;
