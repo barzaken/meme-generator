@@ -170,8 +170,11 @@ img {
 }
 
 .text-input {
-    flex-direction: 70%;
     margin: 10px auto;
+    font-size: 25px;
+    border-radius:22px;
+    width:250px;
+
 }
 
 .color-input {
@@ -278,10 +281,18 @@ img {
 .share-btn {
     background-color: lightblue;
     width: 200px;
+    font-size: 1.3em;
+    padding: 10px 20px;
+    box-shadow: 1px 6px 0 #70c7da, inset 0 20px 0 #ffffff36;
+    border-radius: 15px;
 }
 
 .save-btn {
     background-color: aquamarine;
+    font-size: 1.3em;
+    padding: 10px 20px;
+    box-shadow: 1px 6px 0 #96bcdf, inset 0 20px 0 #ffffff36;
+    border-radius: 15px;
     width: 200px;
 }
 
@@ -289,7 +300,11 @@ img {
     display: inline-block;
     width: 200px;
     background-color: #ff726f;
-    height: 30px;
+    font-size: 1.3em;
+    padding: 10px 20px;
+    box-shadow: 1px 6px 0 #df9796, inset 0 20px 0 #ffffff36;
+    border-radius: 15px;
+    height: 43px;
 }
 
 #meme-canvas {
@@ -301,7 +316,12 @@ img {
     .logo {
         width: 160px;
     }
-
+    .share-btn{
+        margin-bottom: 15px;
+    }
+    .save-btn{
+        margin-bottom: 15px;
+    }
     .nav-bar {
         position: fixed;
         width: 100%;
@@ -339,7 +359,7 @@ img {
 
     .nav-btns>* {
         margin-top: 20px;
-        color: black;
+        color: #ff726f;
         border: none;
         padding: 0px;
         width: 100%;
