@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: black;
+    background-color: rgb(243, 240, 240);
     margin: 0;
 }
 
@@ -32,15 +32,13 @@ img {
         'nav'
         'main';
     border-radius: 7%;
-    box-shadow: -1px 1px 174px 84px rgba(0, 128, 55, 0.6);
-    -webkit-box-shadow: -1px 1px 174px 84px rgba(0, 128, 55, 0.6);
-    -moz-box-shadow: -1px 1px 174px 84px rgba(0, 128, 55, 0.6);
+
     overflow-y: scroll;
 }
 
 .nav-bar {
     grid-area: nav;
-    background-color: black;
+    background-color: #FDB275;
     display: grid;
     grid-template-columns: 300px 1fr;
     grid-template-rows: 1fr;
@@ -50,7 +48,7 @@ img {
 
 .logo {
     grid-area: logo;
-    height: 250px;
+    height: 100%;
 }
 
 
@@ -76,10 +74,10 @@ img {
 
 .main-content {
     grid-area: main;
-    /* background-color: beige */
 }
 
 .gallery-container {
+    background-color: #FFFFF9;
     height: 100%;
     width: 100%;
     display: grid;
@@ -96,9 +94,9 @@ img {
     margin-right: auto;
     margin-top: 20px;
     transition: width 0.5s;
-    box-shadow: -1px 1px 28px 9px rgba(0, 128, 55, 0.6);
-    -webkit-box-shadow: -1px 1px 28px 9px rgba(0, 128, 55, 0.6);
-    -moz-box-shadow: -1px 1px 28px 9px rgba(0, 128, 55, 0.6);
+    box-shadow: -1px 1px 28px 9px #F1A661;
+    -webkit-box-shadow: -1px 1px 28px 9px #F1A661;
+    -moz-box-shadow: -1px 1px 28px 9px #F1A661;
     padding: 2px;
 }
 
@@ -145,7 +143,7 @@ img {
   }
 
 .editor-container {
-    background-color: #303030;
+    background-color: #FFFFF9;
     /* background-color: rgba(0,128,55,0.74); */
     height: 100%;
     display: grid;
@@ -202,7 +200,7 @@ img {
 
 .nav-bar *:hover {
     border: none;
-    color: rgb(142, 232, 142);
+    color: rgb(95, 227, 154);
 }
 
 
@@ -217,8 +215,8 @@ img {
 
 .btn {
     text-decoration: none;
-    background-color: green;
-    border: 3px solid black;
+    background-color: lightblue;
+    border: 3px solid white;
     width: 150px;
     height: 25px;
     color: white;
@@ -297,6 +295,9 @@ img {
 }
 
 @media (max-width:560px) {
+    .logo{
+        width: 160px;
+    }
     .nav-bar  {
         position: fixed;
         width: 100%;
@@ -318,12 +319,12 @@ img {
 
     .nav-btns {
         position: fixed;
-        top: 180px;
+        top: 160px;
         right: 0px;
         transform: translateX(200%);
         width: 70%;
         height: 100%;
-        background-color: rgb(0, 128, 55);
+        background-color: #FFFFF9;
         flex-direction: column;
         transition: transform 1s;
         justify-content: flex-start;
@@ -332,6 +333,7 @@ img {
 
     .nav-btns>* {
         margin-top: 20px;
+        color: black;
         border: none;
         padding: 0px;
         width: 100%;
