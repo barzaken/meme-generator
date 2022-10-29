@@ -10,18 +10,14 @@ const btn = document.querySelector('.share-btn');
 const resultPara = document.querySelector('.user-msg');
 
 // Share must be triggered by "user activation"
-function share() {
-
-  async () => {
-    try {
-      await navigator.share(shareData);
-      resultPara.textContent = 'MDN shared successfully';
-    } catch (err) {
-      resultPara.textContent = `Error: ${err}`;
-    }
-  };
-
-}
+btn.addEventListener('click', async () => {
+  try {
+    await navigator.share(shareData);
+    resultPara.textContent = 'MDN shared successfully';
+  } catch (err) {
+    resultPara.textContent = `Error: ${err}`;
+  }
+});
 
 
 
@@ -32,7 +28,7 @@ function uploadImg() {
   // A function to be called if request succeeds
   function onSuccess(uploadedImgUrl) {
     shareData.url = uploadedImgUrl
-    share()
+    // navigator.share(shareData)
     // Encode the instance of certain characters in the url
     // const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
     // document.querySelector('.user-msg').innerText = `Your photo is available here: ${uploadedImgUrl}`
