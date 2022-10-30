@@ -41,7 +41,6 @@ function drawText({ txt, size, align, color, pos, font }, idx) {
     drawTextBorder()
 }
 
-
 function drawTextBorder() {
     let currLine = getMeme().lines[gCurrLine]
     gCtx.font = `${currLine.size}px ${currLine.font}`
@@ -52,8 +51,6 @@ function drawTextBorder() {
     gCtx.strokeStyle = 'yellow'
     gCtx.strokeRect(currLine.pos.x - (lineWidth/2),currLine.pos.y - lineHeight-10, currLine.pos.x+lineHeight, currLine.pos.y+10)
 }
-
-
 
 function onChangeFont(font) {
     setFont(gCurrLine, font)
