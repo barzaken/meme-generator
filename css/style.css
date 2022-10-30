@@ -96,14 +96,14 @@ img {
     box-shadow: 0px 2px 15px 4px rgba(255,114,111,0.66);
     padding: 2px;
 }
+.card:hover {
+    transform: scale(1.1);
+}
 
 .font-select{
     font-size: 30px;
     border-radius: 22px;
     text-align: center;
-}
-.card:hover {
-    transform: scale(1.1);
 }
 
 
@@ -115,23 +115,28 @@ img {
     margin-bottom: auto;
     height: 500px;
     width: 500px;
-    /* object-fit:fill; */
+    outline: 29px ridge #ff726f;
+    outline-offset: 0px;
 
-    /* place-itemss: center; */
 }
 
-.options * {
+.options button,a {
     text-decoration: none;
-    background-color: transparent;
     border: none;
     justify-content: flex-end;
     color: inherit;
     font-size: 1.5rem;
+    width: 200px;
+    font-size: 1.3em;
+    padding: 10px 20px;
+    box-shadow: 1px 6px 0 #beafaf, inset 0 20px 0 #ffffff36;
+    border-radius: 15px;
+    height: 43px;
+    margin-top: 15px;
 }
 
 .upload-img {
     width: 50px;
-    padding: 0;
 }
 
 .image-upload {
@@ -147,7 +152,6 @@ img {
 
 .editor-container {
     background-color: #FFFFF9;
-    /* background-color: rgba(0,128,55,0.74); */
     height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -217,22 +221,10 @@ img {
     gap: 10px;
 }
 
-.btn {
-    text-decoration: none;
-    background-color: lightblue;
-    border: 3px solid white;
-    width: 150px;
-    height: 25px;
-    color: white;
-}
-
-.link {
+.link, .user-msg {
     margin-top: 10px;
 }
 
-.user-msg {
-    margin-top: 10px;
-}
 
 .menu-btn {
     margin: auto;
@@ -241,16 +233,6 @@ img {
     border: none;
     padding-bottom: 30px;
     font-size: 4rem;
-    /* margin-top: auto; */
-    /* margin-bottom: auto; */
-}
-
-.text-buttons>* {
-    height: 100%;
-}
-
-.editor-btn {
-    object-fit: contain;
 }
 
 .image-btn {
@@ -258,26 +240,13 @@ img {
     height: 30px;
     border: none;
     padding: 0px;
-    /* background-color: green; */
-    /* width: 50px; */
 }
 
-.text-buttons button {
-    background-color: transparent;
-    border: 2px solid white;
-}
-
-.text-buttons input {
+.text-buttons button, .line-controller button,input:not(:first-child) {
     background-color: transparent;
     border: none;
-    /* padding-bottom: 50px; */
-    height: 30px;
 }
 
-.line-controller button {
-    background-color: transparent;
-    border: 2px solid white;
-}
 
 .text-controller {
     height: 0px;
@@ -285,47 +254,21 @@ img {
 
 .share-btn {
     background-color: lightblue;
-    width: 200px;
-    font-size: 1.3em;
-    padding: 10px 20px;
-    box-shadow: 1px 6px 0 #70c7da, inset 0 20px 0 #ffffff36;
-    border-radius: 15px;
 }
 
 .save-btn {
     background-color: aquamarine;
-    font-size: 1.3em;
-    padding: 10px 20px;
-    box-shadow: 1px 6px 0 #96bcdf, inset 0 20px 0 #ffffff36;
-    border-radius: 15px;
-    width: 200px;
 }
 
 .download-btn {
     display: inline-block;
-    width: 200px;
     background-color: #ff726f;
-    font-size: 1.3em;
-    padding: 10px 20px;
-    box-shadow: 1px 6px 0 #df9796, inset 0 20px 0 #ffffff36;
-    border-radius: 15px;
-    height: 43px;
 }
 
-#meme-canvas {
-    outline: 29px ridge #ff726f;
-    outline-offset: 0px;
-}
 
 @media (max-width:780px) {
     .logo {
         width: 160px;
-    }
-    .share-btn{
-        margin-bottom: 15px;
-    }
-    .save-btn{
-        margin-bottom: 15px;
     }
     .nav-bar {
         position: fixed;
@@ -378,11 +321,7 @@ img {
         overflow-y: hidden;
     }
 
-    .main-layout.menu-open .gallery-container {
-        opacity: 0.03;
-    }
-
-    .main-layout.menu-open .editor-container {
+    .main-layout.menu-open .gallery-container,.editor-container {
         opacity: 0.03;
     }
 
