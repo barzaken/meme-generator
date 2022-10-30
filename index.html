@@ -14,60 +14,70 @@
     <div class="main-layout">
         <nav class="nav-bar">
             <button class="menu-btn" onclick="toggleMenu()">☰</button>
-            <img class="logo" src="img/my-logo.png">
+            <h1 onclick="showGallery()" class="logo">Meme Generator</h1>
             <ul class="nav-btns">
                 <li onclick="showGallery()">Gallery</li>
-                <li onclick="showMyMemes()">Memes</li>
+                <li onclick="showMyMemes()">My Memes</li>
                 <li>About</li>
             </ul>
         </nav>
         <div class="main-content">
             <div class="gallery-container"></div>
             <div class="editor-container hide">
-                <div class="meme-editor">
-                    <div class="text-controller">
-                        <input class="text-input" type="text" oninput="onSetTxt(this.value)">
-                        <div class="text-buttons">
-                            <button onclick="onTxtAlign('right')"><img class="image-btn" src="img/icons/icons8-align-left-48.png"></button>
-                            <button onclick="onTxtAlign('center')"><img class="image-btn" src="img/icons/icons8-align-justify-48.png"></button>
-                            <button onclick="onTxtAlign('left')"><img class="image-btn" src="img/icons/icons8-align-right-48.png"></button>
-                            <button onclick="onSetTxtSize(-2)"><img class="image-btn" src="img/icons/icons8-decrease-font-48.png"></button>
-                            <button onclick="onSetTxtSize(2)"><img class="image-btn" src="img/icons/icons8-increase-font-48.png"></button>
-                            <input class="color-input" type="color" oninput="onSetTxtColor(this.value)">
-                        </div>
-                        <div class="line-controller">
-                            <select class="font-select" oninput="onChangeFont(this.value)" name="font" id="font">
-                                <option value="Garamond">Garamond</option>
-                                <option value="Brush Script MT">Brush Script MT</option>
-                                <option value="Trebuchet MS">Trebuchet MS</option>
-                                <option value="Tahoma">Tahoma</option>
-                              </select>
-                            <button onclick="onDeleteLine()"><img class="image-btn" src="img/icons/icons8-trash-can-50.png"></button>
-                            <button onclick="onAddLine()"><img class="image-btn" src="img/icons/icons8-plus-key-50.png"></button>
-                            <button onclick="onSwitchLine()"><img class="image-btn" src="img/icons/icons8-switch-50.png"></button>
-                            <button onclick="onLineHeight(-5)"><img class="image-btn" src="img/icons/icons8-chevron-up-30.png"></button>
-                            <button onclick="onLineHeight(5)"><img class="image-btn" src="img/icons/icons8-chevron-down-30.png"></button>
-                        </div>
-                        <div class="options">
-                            <div class="image-upload">
-                                <label for="file-input">
-                                    <img class="upload-img" src="img/icons/icons8-upload-50.png"/>
-                                    <small>Upload Image</small>
-                                </label>
-                                <input id="file-input" type="file" name="image" onchange="onImgInput(event)" />
-                              </div>
-                            <button class="share-btn" onclick="uploadImg()">Share</button>
-                            <button class="save-btn"  onclick="saveMeme()">Save</button>
-                            <a class="download-btn" href="#" onclick="downloadImg(this)" download="my-meme.jpg">download</a>
-                            <div class="link"></div>
-                            <div class="user-msg"></div>
-                        </div>
+                <div class="meme-controller">
+                    <div class="meme-inputs">
+                        <input class="controller-input" type="text" oninput="onSetTxt(this.value)">
+                        <button onclick="onTxtAlign('right')"><img class="image-btn"
+                                src="img/icons/icons8-align-left-48.png"></button>
+                        <button onclick="onTxtAlign('center')"><img class="image-btn"
+                                src="img/icons/icons8-align-justify-48.png"></button>
+                        <button onclick="onTxtAlign('left')"><img class="image-btn"
+                                src="img/icons/icons8-align-right-48.png"></button>
+                        <button onclick="onSetTxtSize(-2)"><img class="image-btn"
+                                src="img/icons/icons8-decrease-font-48.png"></button>
+                        <button onclick="onSetTxtSize(2)"><img class="image-btn"
+                                src="img/icons/icons8-increase-font-48.png"></button>
+                        <select class="font-select" oninput="onChangeFont(this.value)" name="font" id="font">
+                            <option value="Garamond">Garamond</option>
+                            <option value="Brush Script MT">Brush Script MT</option>
+                            <option value="Trebuchet MS">Trebuchet MS</option>
+                            <option value="Tahoma">Tahoma</option>
+                        </select>
+                        <input class="color-input" type="color" oninput="onSetTxtColor(this.value)">
+                        <button onclick="onDeleteLine()"><img class="image-btn"
+                                src="img/icons/icons8-trash-can-50.png"></button>
+                        <button onclick="onAddLine()"><img class="image-btn"
+                                src="img/icons/icons8-plus-key-50.png"></button>
+                        <button onclick="onSwitchLine()"><img class="image-btn"
+                                src="img/icons/icons8-switch-50.png"></button>
+                        <button onclick="onLineHeight(-5)"><img class="image-btn"
+                                src="img/icons/icons8-chevron-up-30.png"></button>
+                        <button onclick="onLineHeight(5)"><img class="image-btn"
+                                src="img/icons/icons8-chevron-down-30.png"></button>
                     </div>
+                </div>
+                <div class="meme-options">
+                    <div class="image-upload">
+                        <label for="file-input">
+                            <small>Upload Image</small>
+                        </label>
+                        <input id="file-input" type="file" name="image" onchange="onImgInput(event)" />
+                    </div>
+                    <button class="share-btn" onclick="uploadImg()">Share</button>
+                    <button class="save-btn" onclick="saveMeme()">Save</button>
+                    <a class="download-btn" href="#" onclick="downloadImg(this)" download="my-meme.jpg">download</a>
+                    <div class="link"></div>
+                    <div class="user-msg"></div>
                 </div>
                 <canvas id="meme-canvas"></canvas>
             </div>
-            <div class="my-memes hide"></div>
         </div>
+        <div class="my-memes hide"></div>
+        <footer>
+            <small>Made By Bar Zaken</small>
+            <h1>Meme Generator</h1>
+        </footer>
+    </div>
 
     </div>
 

@@ -24,11 +24,19 @@ function renderMeme(savedMeme) {
 
     //Render lines
     meme.lines.forEach((line, idx) => drawText(line, idx))
+    drawTextBorder()
     showEditor(meme)
     gCurrLinesLength = meme.lines.length
 }
 
-function drawText({ txt, size, align, color, pos ,font }, idx) {
+function drawTextBorder() {
+    let currLine = getMeme().lines[gCurrLine]
+    gCtx.strokeStyle = 'yellow'
+    gCtx.strokeRect(currLine.pos.x - 100, currLine.pos.y-30 ,200 , 40)
+}
+
+
+function drawText({ txt, size, align, color, pos, font }, idx) {
     if (!txt) return
     console.log(font)
     gCtx.lineWidth = 2
@@ -39,14 +47,13 @@ function drawText({ txt, size, align, color, pos ,font }, idx) {
     console.log(pos)
 
     pos = { x: pos.x, y: pos.y, width: gCtx.measureText(txt).width }
-
     gCtx.fillText(txt, pos.x, pos.y) // Draws (fills) a given text at the given (x, y) position.
     gCtx.strokeText(txt, pos.x, pos.y) // Draws (strokes) a given text at the given (x, y) position.
 }
 
-function onChangeFont(font){
+function onChangeFont(font) {
     console.log(font)
-    setFont(gCurrLine,font)
+    setFont(gCurrLine, font)
     renderMeme()
 }
 
@@ -123,6 +130,7 @@ function saveMeme() {
 
 function onSwitchLine() {
     (gCurrLine < gCurrLinesLength - 1) ? gCurrLine++ : gCurrLine = 0
+    renderMeme()
 }
 
 function onDeleteLine() {

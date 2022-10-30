@@ -3,8 +3,19 @@
 }
 
 body {
-    background-color: rgb(243, 240, 240);
+    /* background-color: #FDB275; */
     margin: 0;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
 }
 
 ul {
@@ -16,31 +27,28 @@ img {
     width: 100%;
 }
 
-/* green rgb(0,128,55) */
-.menu-btn {
-    display: none;
-}
 
+/* MAIN LAYOUT */
 .main-layout {
+    /* max-width: 1560px; */
     margin: auto auto;
     height: 100vh;
-    max-width: 1560px;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 250px 1fr;
+    grid-template-rows: 100px 1fr 100px;
     grid-template-areas:
         'nav'
-        'main';
-    border-radius: 7%;
-
-    overflow-y: scroll;
+        'main'
+        'footer';
 }
+
+/* NAV BAR */
 
 .nav-bar {
     grid-area: nav;
     background-color: #FDB275;
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 400px 1fr;
     grid-template-rows: 1fr;
     grid-template-areas:
         'logo nav-btns';
@@ -48,42 +56,60 @@ img {
 
 .logo {
     grid-area: logo;
-    height: 100%;
+    display: grid;
+    place-items: center;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    color: #ff726f;
+    justify-content: start;
+    margin-left: 35px;
+    cursor: pointer;
 }
 
+.menu-btn {
+    display: none;
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 4rem;
+}
 
 
 .nav-btns {
     display: flex;
-    justify-content: space-around;
-    margin-top: auto;
-    margin-bottom: auto;
-    transition: 2s hover;
+    justify-content: flex-end;
+    align-items: center;
 }
 
-
-
-.nav-btns>* {
-    border: 2px solid rgb(231, 229, 229);
-    padding: 15px;
+.nav-btns li {
+    padding: 35px;
     color: white;
+    border: none;
+    font-size: 1.5rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+.nav-bar li:hover {
+    color: #ff726f;
+}
+
+
+
+/* MAIN CONTENT */
 
 .main-content {
     grid-area: main;
 }
 
+/* gallery */
+
 .gallery-container {
-    background-color: #FFFFF9;
+    /* background-color: #28282bd7; */
     height: 100%;
-    width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-auto-rows: 180px;
     gap: 10px;
 }
-
 
 .card {
     height: 150px;
@@ -91,21 +117,77 @@ img {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
-    transition: transform .2s; 
-    -webkit-box-shadow: 0px 2px 15px 4px rgba(255,114,111,0.66); 
-    box-shadow: 0px 2px 15px 4px rgba(255,114,111,0.66);
+    transition: transform .2s;
     padding: 2px;
 }
+
 .card:hover {
     transform: scale(1.1);
 }
 
-.font-select{
+
+/* editor */
+
+.editor-container {
+    /* background-color: #28282bd7; */
+    /* background-color: beige; */
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.7fr 0.4fr;
+    grid-template-areas:
+        'canvas controller'
+        'canvas share';
+}
+
+.meme-controller {
+    margin-top: auto;
+    grid-area: controller;
+    display: grid;
+    place-items: center;
+}
+
+.meme-inputs {
+    margin-top: 20px;
+    width: 250px;
+    height: 250px;
+    outline: 10px ridge #e6e3e3;
+    outline-offset: 4px;
+    /* background-color: #ff726f; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 50px);
+    grid-template-rows: repeat(autofit, 50px);
+}
+
+.meme-inputs>* {
+    height: 50px;
+    border: none;
+    background-color: transparent;
+}
+
+.controller-input {
+    grid-column: 1/-1;
+    border-radius: 22px;
+    background-color: white;
+    padding: 8px;
+    border: 2px solid black;
+}
+
+.font-select {
+    grid-column: span 4;
+    background-color: white;
     font-size: 30px;
     border-radius: 22px;
     text-align: center;
+    border: 2px solid black;
+
 }
 
+.meme-options {
+    grid-area: share;
+    display: grid;
+    place-items: center;
+}
 
 #meme-canvas {
     grid-area: canvas;
@@ -115,15 +197,14 @@ img {
     margin-bottom: auto;
     height: 500px;
     width: 500px;
-    outline: 29px ridge #ff726f;
-    outline-offset: 0px;
-
 }
 
-.options button,a {
+.meme-options button,
+a {
     text-decoration: none;
     border: none;
     justify-content: flex-end;
+    text-align: center;
     color: inherit;
     font-size: 1.5rem;
     width: 200px;
@@ -135,55 +216,29 @@ img {
     margin-top: 15px;
 }
 
-.upload-img {
-    width: 50px;
-}
 
 .image-upload {
-    border: 1px dotted red;
+    background-color: lightcyan;
     width: 200px;
-    margin: 15px auto;
-
+    text-align: center;
+    font-size: 1.3em;
+    padding: 10px 20px;
+    box-shadow: 1px 6px 0 #beafaf, inset 0 20px 0 #ffffff36;
+    border-radius: 15px;
+    height: 43px;
+    margin-top: 15px;
 }
 
 .image-upload>input {
     display: none;
 }
 
-.editor-container {
-    background-color: #FFFFF9;
-    height: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas:
-        'canvas edit';
-}
-
-.meme-editor {
-    grid-area: edit;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas:
-        'txt share';
-}
-
-.text-controller {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin-top: auto;
-    margin-bottom: auto;
-    grid-area: txt;
-}
 
 .text-input {
-    margin: 10px auto;
+    margin: 10px auto;   
     font-size: 25px;
-    border-radius:22px;
-    width:250px;
-
+    border-radius: 22px;
+    width: 250px;
 }
 
 .color-input {
@@ -202,16 +257,6 @@ img {
 
 }
 
-.nav-bar * {
-    border: none;
-    font-size: 1.5rem;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.nav-bar li:hover{
-    color: #ff726f;
-}
-
 .my-memes {
     height: 100%;
     width: 100%;
@@ -221,18 +266,14 @@ img {
     gap: 10px;
 }
 
-.link, .user-msg {
-    margin-top: 10px;
+.link,
+.user-msg {
+    margin-top: 35px;
 }
 
 
-.menu-btn {
-    margin: auto;
-    background-color: transparent;
-    color: white;
-    border: none;
-    padding-bottom: 30px;
-    font-size: 4rem;
+.btn {
+    background-color: lightblue;
 }
 
 .image-btn {
@@ -240,16 +281,6 @@ img {
     height: 30px;
     border: none;
     padding: 0px;
-}
-
-.text-buttons button, .line-controller button,input:not(:first-child) {
-    background-color: transparent;
-    border: none;
-}
-
-
-.text-controller {
-    height: 0px;
 }
 
 .share-btn {
@@ -266,18 +297,29 @@ img {
 }
 
 
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #FDB275;
+    text-align: center;
+    grid-area: footer;
+    color: #ff726f;
+}
+
 @media (max-width:780px) {
-    .logo {
-        width: 160px;
+    .gallery-container {
+        overflow-y: scroll;
     }
+
     .nav-bar {
         position: fixed;
         width: 100%;
+        grid-template-columns: 1fr;
     }
 
-    .text-controller {
-        margin-top: 50px;
-        height: 300px;
+    .menu-btn {
+        display: inline-block;
     }
 
     .main-layout {
@@ -286,14 +328,21 @@ img {
         margin-right: auto;
     }
 
-    .menu-btn {
-        display: inline;
-        grid-area: nav-btns;
+    .editor-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            'canvas'
+            'controller'
+            'share';
+    }
+
+    #meme-canvas {
+        max-width: 90%;
     }
 
     .nav-btns {
         position: fixed;
-        top: 110px;
+        top: 80px;
         right: 0px;
         transform: translateX(200%);
         width: 70%;
@@ -305,39 +354,22 @@ img {
         align-items: center;
     }
 
-    .nav-btns>* {
+    .nav-btns li {
         margin-top: 20px;
         color: #ff726f;
         border: none;
         padding: 0px;
         width: 100%;
         text-align: center;
-        border-bottom: 1px solid black;
         font-size: 3rem;
-
     }
 
     .main-layout.menu-open {
         overflow-y: hidden;
     }
 
-    .main-layout.menu-open .gallery-container,.editor-container {
-        opacity: 0.03;
-    }
-
     .main-layout.menu-open .nav-btns {
         transform: translateX(0%);
-    }
-
-    .editor-container {
-        display: flex;
-        flex-direction: column-reverse;
-    }
-
-    #meme-canvas {
-        margin-top: 10px;
-        grid-area: edit;
-        width: 90%;
     }
 }
 

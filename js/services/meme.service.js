@@ -10,7 +10,7 @@ let gMeme = {
     selectedLineIdx: 0,
     lines: [{
         txt: 'Upper goes here',
-        size: 35,
+        size: 25,
         align: 'center',
         color: 'white',
         font: 'impact',
@@ -18,7 +18,7 @@ let gMeme = {
     },
     {
         txt: 'Bottom goes here',
-        size: 35,
+        size: 25,
         align: 'center',
         color: 'white',
         font: 'impact',
@@ -50,9 +50,7 @@ function createImages() {
     return imgs
 }
 
-function setFilter(txt) {
-    gFilterBy.txt = txt
-}
+
 
 // function isLineClicked(clickedPos) {
 //     gIsDrag = gMeme.lines.indexOf(({ pos, size }) =>

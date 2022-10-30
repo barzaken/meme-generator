@@ -16,9 +16,9 @@ function uploadImg() {
     const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
     document.querySelector('.link').innerHTML = `
           <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
-             Share   
+             Share to FaceBook   
              </a>`
-    document.querySelector('.user-msg').innerHTML = `Your photo is available here: <a href="${uploadedImgUrl}">Link</a>`
+    document.querySelector('.user-msg').innerHTML = `<a class="btn" href="${uploadedImgUrl}">Link</a>`
     navigator.share(shareData);
   }
   // Send the image to the server
