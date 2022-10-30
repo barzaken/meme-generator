@@ -24,41 +24,43 @@ function renderMeme(savedMeme) {
 
     //Render lines
     meme.lines.forEach((line, idx) => drawText(line, idx))
-    drawTextBorder()
     showEditor(meme)
     gCurrLinesLength = meme.lines.length
 }
 
-function drawTextBorder() {
-    let currLine = getMeme().lines[gCurrLine]
-    gCtx.strokeStyle = 'yellow'
-    gCtx.strokeRect(currLine.pos.x - 100, currLine.pos.y-30 ,200 , 40)
-}
-
-
 function drawText({ txt, size, align, color, pos, font }, idx) {
     if (!txt) return
-    console.log(font)
     gCtx.lineWidth = 2
     gCtx.strokeStyle = 'black'
     gCtx.fillStyle = color
     gCtx.font = `${size}px ${font}`
     gCtx.textAlign = align
-    console.log(pos)
 
-    pos = { x: pos.x, y: pos.y, width: gCtx.measureText(txt).width }
     gCtx.fillText(txt, pos.x, pos.y) // Draws (fills) a given text at the given (x, y) position.
     gCtx.strokeText(txt, pos.x, pos.y) // Draws (strokes) a given text at the given (x, y) position.
+    drawTextBorder()
 }
 
+
+function drawTextBorder() {
+    let currLine = getMeme().lines[gCurrLine]
+    gCtx.font = `${currLine.size}px ${currLine.font}`
+
+    let lineWidth = gCtx.measureText(currLine.txt).width
+    let lineHeight = gCtx.measureText(currLine.txt).fontBoundingBoxAscent
+
+    gCtx.strokeStyle = 'yellow'
+    gCtx.strokeRect(currLine.pos.x - (lineWidth/2),currLine.pos.y - lineHeight-10, currLine.pos.x+lineHeight, currLine.pos.y+10)
+}
+
+
+
 function onChangeFont(font) {
-    console.log(font)
     setFont(gCurrLine, font)
     renderMeme()
 }
 
 function downloadImg(elLink) {
-    console.log('first')
     const imgContent = gElCanvas.toDataURL('image/jpeg')
     elLink.href = imgContent
 }
@@ -88,38 +90,6 @@ function renderImg(img) {
     // Draw the img on the canvas
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
 }
-
-// function onMove(ev) {
-//     const isDrag = getIsDrag()
-//     if (!isDrag) return
-//     const pos = getEvPos(ev)
-//     //Calc the delta , the diff we moved
-//     const dx = pos.x - gStartPos.x
-//     const dy = pos.y - gStartPos.y
-//     moveLine(dx, dy)
-//     //Save the last pos , we remember where we`ve been and move accordingly
-//     gStartPos = pos
-//     //The canvas is render again after every move
-//     renderMeme()
-// }
-
-// function onDown(ev) {
-//     const pos = getEvPos(ev)
-//     if (!isLineClicked(pos)) return
-//     setLineDrag(true)
-//     //Save the pos we start from 
-//     gStartPos = pos
-//     document.body.style.cursor = 'grabbing'
-// }
-
-// function onUp() {
-//     setLineDrag(false)
-//     document.body.style.cursor = 'grab'
-// }
-
-
-
-
 
 function saveMeme() {
     let meme = getMeme()
@@ -168,39 +138,6 @@ function onSetTxtColor(color) {
     setTxtColor(gCurrLine, color)
     renderMeme()
 }
-
-// function getEvPos(ev) {
-
-//     //Gets the offset pos , the default pos
-//     let pos = {
-//         x: ev.offsetX,
-//         y: ev.offsetY
-//     }
-//     // Check if its a touch ev
-//     if (TOUCH_EVS.includes(ev.type)) {
-//         //soo we will not trigger the mouse ev
-//         ev.preventDefault()
-//         //Gets the first touch point
-//         ev = ev.changedTouches[0]
-//         //Calc the right pos according to the touch screen
-//         pos = {
-//             x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
-//             y: ev.pageY - ev.target.offsetTop - ev.target.clientTop
-//         }
-//     }
-//     return pos
-// }
-
-
-// function addListeners() {
-//     addMouseListeners()
-// }
-
-// function addMouseListeners() {
-//     gElCanvas.addEventListener('mousemove', onMove)
-//     gElCanvas.addEventListener('mousedown', onDown)
-//     gElCanvas.addEventListener('mouseup', onUp)
-// }
 
 function showEditor(meme) {
     let elEditor = document.querySelector('.editor-container')

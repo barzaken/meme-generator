@@ -71,6 +71,10 @@ function createImages() {
 //     gIsDrag = isDrag
 // }
 
+function setLinePos(lineIdx,pos){
+    gMeme.lines[lineIdx].pos = pos
+}
+
 function changeLineHeight(lineIdx, action) {
     gMeme.lines[lineIdx].pos.y += action
 }
@@ -79,7 +83,15 @@ function setTxt(lineIdx, txt) {
     gMeme.lines[lineIdx].txt = txt
 }
 function setTxtAlign(lineIdx, direction) {
-    gMeme.lines[lineIdx].align = direction
+    if(direction === 'right'){
+        gMeme.lines[lineIdx].pos.x = 100
+        return
+    } 
+    else if(direction === 'left'){
+        gMeme.lines[lineIdx].pos.x = 200
+        return
+    } 
+    gMeme.lines[lineIdx].pos.x = 150
 }
 
 function setTxtSize(lineIdx, action) {
