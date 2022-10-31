@@ -46,7 +46,7 @@ img {
 
 .nav-bar {
     grid-area: nav;
-    background-color: #B52B65;
+    background-color: #900C3F;
     display: grid;
     grid-template-columns: 400px 1fr;
     grid-template-rows: 1fr;
@@ -303,10 +303,10 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #F05454;
+    background-color: #900C3F;
     text-align: center;
     grid-area: footer;
-    color: #B52B65;
+    color: #FA7D09;
 }
 
 @media (max-width:780px) {
