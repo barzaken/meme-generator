@@ -21,7 +21,8 @@ function renderMeme(savedMeme) {
     let img = new Image()
     img.src = gUploadSrc || getImgUrlById(meme.selectedImgId)
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
-
+    let elInput = document.querySelector('.controller-input')
+    elInput.value = meme.lines[gCurrLine].txt
     //Render lines
     meme.lines.forEach((line, idx) => drawText(line, idx))
     showEditor(meme)
@@ -38,6 +39,7 @@ function drawText({ txt, size, align, color, pos, font }, idx) {
 
     gCtx.fillText(txt, pos.x, pos.y) // Draws (fills) a given text at the given (x, y) position.
     gCtx.strokeText(txt, pos.x, pos.y) // Draws (strokes) a given text at the given (x, y) position.
+
     drawTextBorder()
 }
 
