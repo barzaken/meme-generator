@@ -46,7 +46,7 @@ img {
 
 .nav-bar {
     grid-area: nav;
-    background-color: #FDB275;
+    background-color: #B52B65;
     display: grid;
     grid-template-columns: 400px 1fr;
     grid-template-rows: 1fr;
@@ -59,8 +59,8 @@ img {
     display: grid;
     place-items: center;
     font-family: "Comic Sans MS", cursive, sans-serif;
-    color: #ff726f;
-
+    /* color: #ff726f; */
+    color: #FA7D09;
     font-size: 2rem;
     justify-content: start;
     margin-left: 35px;
@@ -303,10 +303,10 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #FDB275;
+    background-color: #F05454;
     text-align: center;
     grid-area: footer;
-    color: #ff726f;
+    color: #B52B65;
 }
 
 @media (max-width:780px) {
