@@ -49,7 +49,7 @@ function drawTextBorder() {
     let lineHeight = gCtx.measureText(currLine.txt).fontBoundingBoxAscent
 
     gCtx.strokeStyle = 'yellow'
-    gCtx.strokeRect(currLine.pos.x - (lineWidth/2),currLine.pos.y - lineHeight-10, currLine.pos.x+lineHeight, currLine.pos.y+10)
+    gCtx.strokeRect(currLine.pos.x - (lineWidth/2),currLine.pos.y - lineHeight, currLine.pos.x+(lineHeight), currLine.pos.y)
 }
 
 function onChangeFont(font) {
