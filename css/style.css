@@ -30,7 +30,7 @@ img {
 
 /* MAIN LAYOUT */
 .main-layout {
-    max-width: 1260px;
+    max-width: 150=60px;
     margin: auto auto;
     height: 100vh;
     display: grid;
